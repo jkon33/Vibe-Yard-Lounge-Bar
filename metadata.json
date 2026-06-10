@@ -1,0 +1,8 @@
+{
+  "name": "Vibe Yard Lounge & Bar",
+  "description": "Vibe Yard Lounge & Bar menu management system and futuristic customer menu dashboard with real-time updates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
