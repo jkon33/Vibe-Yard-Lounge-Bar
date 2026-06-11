@@ -113,11 +113,6 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
       <header className="sticky top-0 z-40 w-full border-b border-cyan-500/20 bg-[#050505]/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            {/* Elegant Launcher Badge */}
-            <div className="w-9 h-9 bg-gradient-to-br from-cyan-500 to-fuchsia-600 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.5)] shrink-0">
-              <span className="text-white font-black text-lg font-display">V</span>
-            </div>
-
             {/* Dynamic Logo banner */}
             <div className="flex flex-col">
               {siteConfig.logoUrl.startsWith("data:image") || siteConfig.logoUrl.startsWith("http") ? (
