@@ -1,7 +1,19 @@
 import { MenuItem, SiteConfig } from "../types";
 
 // Base URL for the API
-const API_BASE = "/api";
+const getApiBase = () => {
+  const envBase = import.meta.env.VITE_API_BASE;
+  if (envBase) {
+    const clean = envBase.replace(/\/$/, "");
+    if (clean.includes("://") && !clean.endsWith("/api") && !clean.includes("/api/")) {
+      return `${clean}/api`;
+    }
+    return clean;
+  }
+  return "/api";
+};
+
+const API_BASE = getApiBase();
 
 // Fetch wrapper that handles cookies and standardizes payloads
 async function request<T>(
@@ -119,8 +131,20 @@ export function createWebSocketConnection(
   onMenuUpdate: (payload: any) => void,
   onConfigUpdate: (payload: any) => void
 ): () => void {
-  const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-  const wsUrl = `${protocol}//${window.location.host}`;
+  // Determine dynamic WebSocket URL
+  let wsUrl = "";
+  const envWs = import.meta.env.VITE_WS_URL;
+  if (envWs) {
+    wsUrl = envWs;
+  } else if (import.meta.env.VITE_API_BASE) {
+    const cleanApiBase = import.meta.env.VITE_API_BASE.replace(/\/$/, "");
+    let derived = cleanApiBase.replace(/^http:/, "ws:").replace(/^https:/, "wss:");
+    derived = derived.replace(/\/api$/, "");
+    wsUrl = derived;
+  } else {
+    const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+    wsUrl = `${protocol}//${window.location.host}`;
+  }
   let ws: WebSocket;
   let reconnectTimer: NodeJS.Timeout;
   let keepAliveTimer: NodeJS.Timeout;
