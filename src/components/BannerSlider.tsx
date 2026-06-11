@@ -60,10 +60,10 @@ export default function BannerSlider({ banners }: BannerSliderProps) {
           Featured Experience
         </span>
         <h2 className="text-2xl md:text-5xl font-display font-black tracking-tighter text-white uppercase leading-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-          NEON <span className="text-cyan-400">YARD</span> MIXOLOGY
+          Step Into the <span className="text-cyan-400">Yard</span>. Leave Reality Behind.
         </h2>
         <p className="mt-3 text-xs md:text-sm text-neutral-300 leading-relaxed border-l-2 border-cyan-500 pl-4 font-mono max-w-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-          Experience the future of nightlife with our signature synth-brews and high-fidelity atmosphere.
+          Drinks That Glow. Meals That Hit. Prices That Make Sense – For Everyone.
         </p>
       </div>
 

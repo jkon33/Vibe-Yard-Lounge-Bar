@@ -184,8 +184,8 @@ export default function MenuFormModal({ isOpen, onClose, onSubmit, editingItem }
                 onChange={(e) => setCategory(e.target.value as any)}
                 className="w-full px-4 py-2 bg-black border border-white/10 rounded-xl text-white text-sm font-sans focus:outline-none focus:border-violet-500 transition"
               >
-                <option value="Drink">Drinks (Mixology)</option>
-                <option value="Food">Foods (Fusions)</option>
+                <option value="Drink">Drinks</option>
+                <option value="Food">Foods</option>
               </select>
             </div>
 

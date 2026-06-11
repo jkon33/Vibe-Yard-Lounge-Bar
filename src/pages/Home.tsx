@@ -213,14 +213,14 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
               <Sparkles size={14} className="animate-spin duration-300)" /> Executive Priority Rate
             </div>
             <h2 className="text-xl md:text-2xl font-sans font-extrabold tracking-tight text-white mt-1">
-              Elevate Your Senses with Vibe Yard VIP Status
+              Premium experiences deserve transparent pricing. No surprises, just good energy.
             </h2>
-            <p className="text-xs text-neutral-400 font-mono mt-1.5 leading-relaxed">
-              Unlock the golden margin. VIP tier users enjoy premium discounts, early product access, and complimentary custom mixology reserves during events. Join today from our reception desk.
+            <p className="text-xs sm:text-sm text-neutral-300 font-sans mt-2 leading-relaxed">
+              At Vibe Yard, we believe great nights out shouldn't come with confusing math. That's why we've made our pricing crystal clear — whether you're rolling deep with the crew or treating yourself after a long week.
             </p>
           </div>
-          <div className="flex rounded-lg bg-gradient-to-r from-yellow-600 to-yellow-400 text-black px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider text-center max-w-[160px] shrink-0 justify-center items-center shadow-[0_0_15px_rgba(245,158,11,0.3)]">
-            Up to 30% Off
+          <div className="flex rounded-lg bg-gradient-to-r from-yellow-600 to-yellow-400 text-black px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider text-center shrink-0 justify-center items-center shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+            Check out our prices below
           </div>
         </section>
 
