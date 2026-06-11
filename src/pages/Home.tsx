@@ -11,9 +11,28 @@ interface HomeProps {
 }
 
 export default function Home({ onNavigateToLogin }: HomeProps) {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-  const [siteConfig, setSiteConfig] = useState<SiteConfig>({ logoUrl: "Vibe Yard", banners: [] });
-  const [loading, setLoading] = useState(true);
+  // Stale-While-Revalidate Local Storage Cache Handlers for Instant Load
+  const [menuItems, setMenuItems] = useState<MenuItem[]>(() => {
+    try {
+      const cached = localStorage.getItem("vibeyard_menu");
+      return cached ? JSON.parse(cached) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [siteConfig, setSiteConfig] = useState<SiteConfig>(() => {
+    try {
+      const cached = localStorage.getItem("vibeyard_config");
+      return cached ? JSON.parse(cached) : { logoUrl: "Vibe Yard", banners: [] };
+    } catch {
+      return { logoUrl: "Vibe Yard", banners: [] };
+    }
+  });
+
+  // Start with loading true only if there is nothing in the local cache yet,
+  // making load instant for repeat accesses (mobile/tablet/desktop)
+  const [loading, setLoading] = useState(() => !menuItems.length);
   const [error, setError] = useState<string | null>(null);
 
   // Search/Filters states
@@ -23,11 +42,24 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
   // Real-time synchronization toast notifier
   const [syncToast, setSyncToast] = useState<{ message: string; visible: boolean } | null>(null);
 
+  // Helper to determine if the customized logo is an actual image (Base64, relative root path, or external URL)
+  const isLogoImage = (url: string) => {
+    if (!url) return false;
+    const lower = url.trim().toLowerCase();
+    return (
+      lower.startsWith("data:image/") ||
+      lower.startsWith("http://") ||
+      lower.startsWith("https://") ||
+      lower.startsWith("/") ||
+      lower.includes("base64")
+    );
+  };
+
   // Fetch initial data
   const fetchData = async () => {
     try {
-      setLoading(true);
       setError(null);
+      
       const [menuRes, configRes] = await Promise.all([
         apiService.getMenu(),
         apiService.getSiteConfig(),
@@ -35,16 +67,28 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
 
       if (menuRes.success && menuRes.data) {
         setMenuItems(menuRes.data);
-      } else {
+        try {
+          localStorage.setItem("vibeyard_menu", JSON.stringify(menuRes.data));
+        } catch (e) {
+          console.warn("Local storage cache write issue:", e);
+        }
+      } else if (!menuItems.length) {
         setError(menuRes.message || "Could not retrieve menu elements.");
       }
 
       if (configRes.success && configRes.data) {
         setSiteConfig(configRes.data);
+        try {
+          localStorage.setItem("vibeyard_config", JSON.stringify(configRes.data));
+        } catch (e) {
+          console.warn("Local storage cache write issue:", e);
+        }
       }
     } catch (err) {
       console.error("Home data pull failure:", err);
-      setError("Synchronisation with mainframe failed. Check network.");
+      if (!menuItems.length) {
+        setError("Synchronisation with mainframe failed. Check network.");
+      }
     } finally {
       setLoading(false);
     }
@@ -61,6 +105,11 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
         apiService.getMenu().then((res) => {
           if (res.success && res.data) {
             setMenuItems(res.data);
+            try {
+              localStorage.setItem("vibeyard_menu", JSON.stringify(res.data));
+            } catch (e) {
+              console.warn("Local storage cache write issue:", e);
+            }
             
             // Show real-time feedback toast
             let actMsg = "Mainframe sync: Consolidated catalogs refreshed.";
@@ -76,10 +125,16 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
       // On Config Update callback
       (payload) => {
         if (payload) {
-          setSiteConfig({
+          const updatedConfig = {
             logoUrl: payload.logoUrl,
             banners: payload.banners || [],
-          });
+          };
+          setSiteConfig(updatedConfig);
+          try {
+            localStorage.setItem("vibeyard_config", JSON.stringify(updatedConfig));
+          } catch (e) {
+            console.warn("Local storage cache write issue:", e);
+          }
           setSyncToast({ message: "Dashboard layout adjusted by admin.", visible: true });
           setTimeout(() => setSyncToast((prev) => (prev ? { ...prev, visible: false } : null)), 3500);
         }
@@ -115,15 +170,15 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
           <div className="flex items-center gap-3">
             {/* Dynamic Logo banner */}
             <div className="flex flex-col">
-              {siteConfig.logoUrl.startsWith("data:image") || siteConfig.logoUrl.startsWith("http") ? (
+              {isLogoImage(siteConfig.logoUrl) ? (
                 <img
                   src={siteConfig.logoUrl}
                   alt="Logo"
-                  className="max-h-10 object-contain filter drop-shadow-[0_0_8px_rgba(0,243,255,0.3)]"
+                  className="max-h-12 w-auto max-w-[145px] sm:max-w-[200px] object-contain filter drop-shadow-[0_0_8px_rgba(0,243,255,0.35)]"
                   referrerPolicy="no-referrer"
                 />
               ) : (
-                <span className="text-xl md:text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 uppercase font-sans">
+                <span className="text-lg sm:text-xl md:text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 uppercase font-sans">
                   {siteConfig.logoUrl || "Vibe Yard"} <span className="text-cyan-400">Lounge</span>
                 </span>
               )}
@@ -258,12 +313,20 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
       {/* Bottom Status Bar Footer */}
       <footer className="mt-20 border-t border-white/5 bg-[#050505] py-8 px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-widest text-neutral-400">
         <div className="flex gap-6 items-center">
-          <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> System Online</span>
-          <span className="text-gray-500 font-mono">Last Sync: Live Connection</span>
+          <span>Vibe Yard Lounge & Bar 2026</span>
         </div>
         <div className="flex gap-6 items-center">
-          <span className="text-cyan-400 font-bold">VIP Members get 30% off all orders</span>
-          <span className="text-gray-500 font-mono">v1.2.0-secure</span>
+          <span className="text-neutral-500">
+            Website is designed by{" "}
+            <a
+              href="https://wa.link/ik6tzk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-400 underline decoration-cyan-400/30 hover:decoration-cyan-400 transition normal-case"
+            >
+              CodeNaija Limited
+            </a>
+          </span>
         </div>
       </footer>
 
