@@ -74,7 +74,7 @@ export default function MenuCard({ item }: MenuCardProps) {
           <span className="block text-[9px] uppercase tracking-widest font-mono text-neutral-500">
             Regular Price
           </span>
-          <span className="text-sm font-semibold text-neutral-400">${item.regularPrice.toFixed(2)}</span>
+          <span className="text-sm font-semibold text-neutral-400">₦{item.regularPrice.toFixed(2)}</span>
         </div>
 
         {/* Separator / Divider */}
@@ -90,7 +90,7 @@ export default function MenuCard({ item }: MenuCardProps) {
             {/* Shimmer animation bar using pure CSS inside class */}
             <div className="absolute top-0 -inset-x-20 bottom-0 bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-12 translate-x-[-100%] animate-[shimmer_2.5s_infinite]" />
             <span className="text-[11px] font-black text-black">
-              ${item.vipPrice.toFixed(2)}
+              ₦{item.vipPrice.toFixed(2)}
             </span>
           </div>
         </div>

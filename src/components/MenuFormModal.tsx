@@ -191,7 +191,7 @@ export default function MenuFormModal({ isOpen, onClose, onSubmit, editingItem }
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-xs uppercase font-mono tracking-wider text-neutral-400 mb-1">Reg ($)</label>
+                <label className="block text-xs uppercase font-mono tracking-wider text-neutral-400 mb-1">Reg (₦)</label>
                 <input
                   type="number"
                   step="0.01"
@@ -203,7 +203,7 @@ export default function MenuFormModal({ isOpen, onClose, onSubmit, editingItem }
                 />
               </div>
               <div>
-                <label className="block text-xs uppercase font-mono tracking-wider text-amber-500 font-bold mb-1">VIP ($)</label>
+                <label className="block text-xs uppercase font-mono tracking-wider text-amber-500 font-bold mb-1">VIP (₦)</label>
                 <input
                   type="number"
                   step="0.01"

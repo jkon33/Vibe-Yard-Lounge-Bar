@@ -125,10 +125,10 @@ export default function AdminMenuManage({
                       </span>
                     </td>
                     <td className="px-5 py-4 font-mono font-medium text-neutral-300">
-                      ${item.regularPrice.toFixed(2)}
+                      ₦{item.regularPrice.toFixed(2)}
                     </td>
                     <td className="px-5 py-4 font-mono font-extrabold text-amber-300">
-                      ${item.vipPrice.toFixed(2)}
+                      ₦{item.vipPrice.toFixed(2)}
                     </td>
                     <td className="px-5 py-4 text-right">
                       <div className="flex items-center justify-end gap-1.5">
