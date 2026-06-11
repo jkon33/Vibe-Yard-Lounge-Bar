@@ -44,6 +44,9 @@ export async function login(req: Request, res: Response): Promise<any> {
     return res.status(200).json({
       success: true,
       message: "Authentication successful.",
+      data: {
+        username: admin.username,
+      },
       user: {
         username: admin.username,
       },
@@ -88,6 +91,9 @@ export async function checkAuthStatus(req: any, res: Response): Promise<any> {
   if (req.user) {
     return res.status(200).json({
       success: true,
+      data: {
+        username: req.user.username,
+      },
       user: {
         username: req.user.username,
       },

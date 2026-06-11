@@ -64,7 +64,16 @@ async function startServer() {
     const defaults = ["http://localhost:3000", "http://127.0.0.1:3000"];
     
     if (origin) {
-      if (allowedOrigins.includes(origin) || defaults.includes(origin) || !isProd) {
+      const cleanOrigin = origin.replace(/\/$/, "");
+      const isAllowed = allowedOrigins.some(allowed => {
+        const cleanAllowed = allowed.replace(/\/$/, "");
+        return cleanAllowed === cleanOrigin;
+      });
+
+      const isVercelSubdomain = cleanOrigin.endsWith(".vercel.app");
+      const isRenderSubdomain = cleanOrigin.endsWith(".onrender.com");
+
+      if (isAllowed || defaults.includes(origin) || isVercelSubdomain || isRenderSubdomain || !isProd) {
         res.setHeader("Access-Control-Allow-Origin", origin);
       }
     } else {

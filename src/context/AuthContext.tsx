@@ -21,10 +21,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const checkAuth = async () => {
     setState((prev) => ({ ...prev, loading: true }));
     const response = await apiService.checkAuth();
-    if (response.success && response.data) {
+    const userData = response.data || (response as any).user;
+    if (response.success && userData) {
       setState({
         isAuthenticated: true,
-        username: response.data.username,
+        username: userData.username,
         loading: false,
       });
     } else {
@@ -42,10 +43,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (credentials: Record<string, string>) => {
     const res = await apiService.login(credentials);
-    if (res.success && res.data) {
+    const userData = res.data || (res as any).user;
+    if (res.success && userData) {
       setState({
         isAuthenticated: true,
-        username: res.data.username,
+        username: userData.username,
         loading: false,
       });
       return { success: true };
