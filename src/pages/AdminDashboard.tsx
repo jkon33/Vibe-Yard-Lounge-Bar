@@ -6,7 +6,8 @@ import BannerUpload from "../components/BannerUpload";
 import AdminMenuManage from "../components/AdminMenuManage";
 import MenuFormModal from "../components/MenuFormModal";
 import { useAuth } from "../context/AuthContext";
-import { ShieldCheck, LogOut, RefreshCw, Layers, Layout, AlertCircle, Sparkles, Sliders } from "lucide-react";
+import { ShieldCheck, LogOut, RefreshCw, Layers, Layout, AlertCircle, Sparkles, Sliders, QrCode } from "lucide-react";
+import FlyerPortlet from "../components/FlyerPortlet";
 
 interface AdminDashboardProps {
   onLogoutSuccess: () => void;
@@ -22,7 +23,7 @@ export default function AdminDashboard({ onLogoutSuccess }: AdminDashboardProps)
   const [error, setError] = useState<string | null>(null);
 
   // Tabs / Active views
-  const [activeTab, setActiveTab] = useState<"menu" | "site">("menu");
+  const [activeTab, setActiveTab] = useState<"menu" | "site" | "flyer">("menu");
 
   // Modal State for Menu item mutation
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -207,6 +208,17 @@ export default function AdminDashboard({ onLogoutSuccess }: AdminDashboardProps)
               >
                 <Layout size={14} /> Brand Properties
               </button>
+
+              <button
+                onClick={() => setActiveTab("flyer")}
+                className={`w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-mono font-medium transition cursor-pointer text-left ${
+                  activeTab === "flyer"
+                    ? "bg-violet-600 text-white shadow-[0_0_15px_rgba(139,92,246,0.2)]"
+                    : "text-neutral-400 hover:text-white hover:bg-white/[0.01]"
+                }`}
+              >
+                <QrCode size={14} /> Promote & Flyer Hub
+              </button>
             </div>
 
             <div className="mt-4 p-4 rounded-2xl border border-white/5 bg-neutral-950/20 text-[9px] font-mono text-neutral-500 space-y-2">
@@ -261,7 +273,7 @@ export default function AdminDashboard({ onLogoutSuccess }: AdminDashboardProps)
                     }}
                     onDeleteClick={handleDeleteItem}
                   />
-                ) : (
+                ) : activeTab === "site" ? (
                   <div className="space-y-6">
                     {/* Logo upload wrapper */}
                     <LogoUpload
@@ -281,6 +293,8 @@ export default function AdminDashboard({ onLogoutSuccess }: AdminDashboardProps)
                       }}
                     />
                   </div>
+                ) : (
+                  <FlyerPortlet />
                 )}
               </>
             )}

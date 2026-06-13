@@ -344,6 +344,7 @@ export default function Home({ onNavigateToLogin }: HomeProps) {
           </motion.div>
         )}
       </AnimatePresence>
+
     </div>
   );
 }
