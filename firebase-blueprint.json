@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "MenuItem": {
+      "title": "MenuItem",
+      "description": "A single consumable item (Drink or Food) in the lounge's menu.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the menu item."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the food or drink drink."
+        },
+        "description": {
+          "type": "string",
+          "description": "Subtle, descriptive prose about the item."
+        },
+        "regularPrice": {
+          "type": "number",
+          "description": "Standard shelf price for general public."
+        },
+        "vipPrice": {
+          "type": "number",
+          "description": "Special rate for VIP users."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["Drink", "Food"],
+          "description": "The category classification."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "Base64 encoded string or external public URL of the item image."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp."
+        }
+      },
+      "required": ["name", "description", "regularPrice", "vipPrice", "category", "imageUrl"]
+    },
+    "SiteConfig": {
+      "title": "SiteConfig",
+      "description": "Global custom configurations for Vibe Yard brand assets.",
+      "type": "object",
+      "properties": {
+        "logoUrl": {
+          "type": "string",
+          "description": "Custom text name or Base64 encoded logo image."
+        },
+        "banners": {
+          "type": "array",
+          "description": "Ordered lists of custom banners image/text entries."
+        }
+      },
+      "required": ["logoUrl", "banners"]
+    }
+  },
+  "firestore": {
+    "/menu": {
+      "schema": "MenuItem",
+      "description": "Persistence path for lounge food and drinks menu items."
+    },
+    "/site-config/global": {
+      "schema": "SiteConfig",
+      "description": "Single-document path containing active brand assets and configs."
+    }
+  }
+}

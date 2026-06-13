@@ -6,6 +6,7 @@ export const publicRateLimiter = rateLimit({
   max: 100,
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { trustProxy: false },
   message: {
     success: false,
     message: "Rate limit exceeded. Cyber threat defense active. Please retry in 15 minutes.",
@@ -18,6 +19,7 @@ export const secureAdminLimiter = rateLimit({
   max: 20,
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { trustProxy: false },
   message: {
     success: false,
     message: "Brute face mitigation active. System locked for admin actions. Please retry in 1 hour.",

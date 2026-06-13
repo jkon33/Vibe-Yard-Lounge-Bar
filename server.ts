@@ -17,6 +17,7 @@ async function startServer() {
   await connectDB();
 
   const app = express();
+  app.set("trust proxy", 1);
   const PORT = 3000;
 
   // Create HTTP server (shared with WebSocket)
@@ -34,11 +35,13 @@ async function startServer() {
         ? {
             directives: {
               defaultSrc: ["'self'"],
-              scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://fonts.googleapis.com"],
-              styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-              imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://*.unsplash.com"],
-              fontSrc: ["'self'", "https://fonts.gstatic.com"],
-              connectSrc: ["'self'", "wss:", "ws:", "https://*.unsplash.com"],
+              scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://fonts.googleapis.com", "https://embed.tawk.to", "https://*.tawk.to"],
+              styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://*.tawk.to"],
+              imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://*.unsplash.com", "https://*.tawk.to"],
+              fontSrc: ["'self'", "https://fonts.gstatic.com", "https://*.tawk.to"],
+              connectSrc: ["'self'", "wss:", "ws:", "https://*.unsplash.com", "https://*.tawk.to", "wss://*.tawk.to"],
+              frameSrc: ["'self'", "https://*.tawk.to"],
+              childSrc: ["'self'", "https://*.tawk.to"],
             },
           }
         : false,
