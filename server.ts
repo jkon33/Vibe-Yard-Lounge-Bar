@@ -27,24 +27,11 @@ async function startServer() {
   initWebSocketServer(server);
 
   // 1. Security Headers (Helmet.js)
-  // Disable CSP in development to prevent Vite bundle loading blocks, otherwise use standard.
+  // Disable CSP to allow third-party scripts, styles, embeds (like Tawk.to) to run without browser block.
   const isProd = process.env.NODE_ENV === "production";
   app.use(
     helmet({
-      contentSecurityPolicy: isProd
-        ? {
-            directives: {
-              defaultSrc: ["'self'"],
-              scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://fonts.googleapis.com", "https://embed.tawk.to", "https://*.tawk.to"],
-              styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://*.tawk.to"],
-              imgSrc: ["'self'", "data:", "https://images.unsplash.com", "https://*.unsplash.com", "https://*.tawk.to"],
-              fontSrc: ["'self'", "https://fonts.gstatic.com", "https://*.tawk.to"],
-              connectSrc: ["'self'", "wss:", "ws:", "https://*.unsplash.com", "https://*.tawk.to", "wss://*.tawk.to"],
-              frameSrc: ["'self'", "https://*.tawk.to"],
-              childSrc: ["'self'", "https://*.tawk.to"],
-            },
-          }
-        : false,
+      contentSecurityPolicy: false,
       crossOriginResourcePolicy: { policy: "cross-origin" },
       crossOriginEmbedderPolicy: false,
     })

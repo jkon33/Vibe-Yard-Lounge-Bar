@@ -270,6 +270,314 @@ const DEFAULT_MENU_ITEMS: any[] = [
     imageUrl: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80",
     createdAt: new Date(),
     updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-22",
+    name: "Fekomi Bitters",
+    description: "Premium energetic herbal bitters formulated traditional style for strength and recovery.",
+    regularPrice: 1000,
+    vipPrice: 1500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-23",
+    name: "Plastic Origin",
+    description: "Authentic premium herbal bitters with intense botanical properties and smooth aftertaste.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-24",
+    name: "Lacoco Bitters",
+    description: "Elegantly finished traditional bitters blended with aromatic herbs for high vitality.",
+    regularPrice: 1000,
+    vipPrice: 1500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-25",
+    name: "Monster Energy",
+    description: "The ultimate carbonated energy punch with refreshing sweetness and sharp focus boost.",
+    regularPrice: 3000,
+    vipPrice: 3500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-26",
+    name: "Red Bull",
+    description: "Classic premium Austrian formulation designed to vitalize body and mind instantly.",
+    regularPrice: 3000,
+    vipPrice: 3500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-27",
+    name: "Climax Energy",
+    description: "Dynamic stimulating energy blend offering high responsiveness and smooth flavor profiles.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1551538827-9c02e5243009?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-28",
+    name: "Power House",
+    description: "Extra strong, rapid acting energy stimulant with punchy sweet tones.",
+    regularPrice: 3000,
+    vipPrice: 3500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-29",
+    name: "Heineken",
+    description: "Premium global golden lager brewed with passion, serving a crystal-clean, refreshing taste.",
+    regularPrice: 2000,
+    vipPrice: 2500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-30",
+    name: "B. Smirnoff",
+    description: "Smirnoff Ice Double Black, premium malt blend delivering crisp, bold citrus notes.",
+    regularPrice: 2000,
+    vipPrice: 2500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-31",
+    name: "S. Smirnoff",
+    description: "Classic Smirnoff Ice, standard refreshing lemon cooler with extremely smooth finish.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-32",
+    name: "Budweiser",
+    description: "The classic American lager, carefully beechwood aged for an incredibly clean finish.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1566633806327-68e152aaf26d?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-33",
+    name: "Desperado",
+    description: "Unique premium tequila-flavored beer, combining crisp lager with refreshing lime-tequila kick.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1518176258769-f227c7981519?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-34",
+    name: "F. Fish",
+    description: "Flying Fish premium flavored beer with crisp taste and delicious hint of sweet lemon zest.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1584225065152-4a1454aa3d4e?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-35",
+    name: "B. Guinness",
+    description: "Large bottle of rich Guinness Extra Stout, showcasing bold roasted barley and dark cocoa flavours.",
+    regularPrice: 2500,
+    vipPrice: 3000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-36",
+    name: "S. Guinness",
+    description: "Guinness Extra Stout in regular small bottle, preserving the same world-standard intense roasted flavor.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-37",
+    name: "Castle Lite",
+    description: "Superbly crisp South African lite lager, dry-hopped and extra cold-mellowed.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-38",
+    name: "Goldberg",
+    description: "Vibrant golden Nigerian lager beer triple-brewed to preserve traditional crisp bitter profiles.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-39",
+    name: "Legend Stout",
+    description: "Premium smooth extra stout with distinct, rich espresso and velvety malt characteristics.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-40",
+    name: "Gulder",
+    description: "Extra strong, bold traditional golden lager beer with highly balanced roasted hop flavors.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-41",
+    name: "Orijin Beer",
+    description: "Bittersweet herbal session beer infused with select natural roots and traditional spices.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1584225065152-4a1454aa3d4e?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-42",
+    name: "Trophy",
+    description: "Rich, satisfying, and refreshingly bitter light gold traditional lager beer.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-43",
+    name: "Turbo King",
+    description: "Robust dark brew offering intense malty body, smooth texture, and majestic energetic profile.",
+    regularPrice: 1500,
+    vipPrice: 2000,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-44",
+    name: "Cranberry",
+    description: "Whole premium container box of chilled cranberry juice, wonderfully tart and antioxidant-rich.",
+    regularPrice: 10000,
+    vipPrice: 10500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-45",
+    name: "Coke",
+    description: "The classic soft drink served ice-cold, delivering timeless delicious effervescence.",
+    regularPrice: 1000,
+    vipPrice: 1500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-46",
+    name: "Malt",
+    description: "Refreshing, rich, and highly nourishing premium non-alcoholic dark malt beverage.",
+    regularPrice: 1000,
+    vipPrice: 1500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-47",
+    name: "Hollandia",
+    description: "Ultra-creamy, smooth yogurt or evaporated beverage providing delicious refreshing fuel.",
+    regularPrice: 3000,
+    vipPrice: 3500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-48",
+    name: "Active",
+    description: "Multi-fruit power nectar with zero added sugar, full of vital energetic properties.",
+    regularPrice: 3000,
+    vipPrice: 3500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: "vy-drink-49",
+    name: "Fayrouz",
+    description: "Premium sparkling, non-alcoholic malt beverage with delicious hints of refreshing natural fruit.",
+    regularPrice: 1000,
+    vipPrice: 1500,
+    category: "Drink",
+    imageUrl: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80",
+    createdAt: new Date(),
+    updatedAt: new Date(),
   }
 ];
 
@@ -290,6 +598,9 @@ interface LocalStoreSchema {
     username: string;
     passwordHash: string;
     refreshToken: string;
+    email?: string;
+    resetPasswordToken?: string;
+    resetPasswordExpires?: string;
   };
 }
 
@@ -312,6 +623,9 @@ function readLocalStore(): LocalStoreSchema {
         username: process.env.ADMIN_USERNAME || "admin",
         passwordHash: bcryptjs.hashSync(process.env.ADMIN_PASSWORD || "VibeYardSecurePass2026!", 12),
         refreshToken: "",
+        email: "admin@vibeyardlounge.com",
+        resetPasswordToken: "",
+        resetPasswordExpires: "",
       },
     };
     fs.writeFileSync(DATA_STORE_PATH, JSON.stringify(initialConfig, null, 2));
@@ -321,10 +635,24 @@ function readLocalStore(): LocalStoreSchema {
     const data = fs.readFileSync(DATA_STORE_PATH, "utf-8");
     const parsed = JSON.parse(data);
     
-    // Auto-migrate local store if it contains old mockups
-    if (parsed.menuItems && parsed.menuItems.some((it: any) => it.id && it.id.includes("seed-"))) {
+    let needsWrite = false;
+    // Auto-migrate local store if it contains old mockups or incomplete menu
+    const hasOldLocal = parsed.menuItems && parsed.menuItems.some((it: any) => it.id && it.id.includes("seed-"));
+    const incompleteLocal = parsed.menuItems && parsed.menuItems.length > 0 && parsed.menuItems.length < 40 && parsed.menuItems.some((it: any) => it.id && it.id.startsWith("vy-drink-"));
+    if (hasOldLocal || incompleteLocal) {
       console.log("🍟 Migrating local store old seeds to new official Vibe Yard menu...");
       parsed.menuItems = DEFAULT_MENU_ITEMS;
+      needsWrite = true;
+    }
+
+    if (parsed.admin && !parsed.admin.email) {
+      parsed.admin.email = "admin@vibeyardlounge.com";
+      parsed.admin.resetPasswordToken = "";
+      parsed.admin.resetPasswordExpires = "";
+      needsWrite = true;
+    }
+
+    if (needsWrite) {
       fs.writeFileSync(DATA_STORE_PATH, JSON.stringify(parsed, null, 2));
     }
     
@@ -388,15 +716,22 @@ async function seedMongo() {
         username,
         password: hashedPassword,
         refreshToken: "",
+        email: "admin@vibeyardlounge.com",
       });
       console.log(`👤 Admin user seeded successfully. Username: ${username}`);
+    } else {
+      await AdminModel.updateMany(
+        { email: { $exists: false } },
+        { $set: { email: "admin@vibeyardlounge.com" } }
+      );
     }
 
-    // Auto-migrate if old seeds present in MongoDB
+    // Auto-migrate if old seeds or incomplete menu present in MongoDB
     const oldSeedInMongo = await MenuItemModel.findOne({ name: "Elixir of the Night" });
-    if (oldSeedInMongo) {
-      console.log("🍟 Found old mockups in MongoDB. Migrating to official Vibe Yard menu...");
-      await MenuItemModel.deleteMany({});
+    const countVibeYardInMongo = await MenuItemModel.countDocuments({ id: { $regex: /^vy-drink-/ } });
+    if (oldSeedInMongo || (countVibeYardInMongo > 0 && countVibeYardInMongo < 40)) {
+      console.log("🍟 Found old mockups or incomplete menu in MongoDB. Migrating to official Vibe Yard menu...");
+      await MenuItemModel.deleteMany({ $or: [{ id: { $regex: /seed-/ } }, { id: { $regex: /^vy-drink-/ } }] });
     }
 
     const menuCount = await MenuItemModel.countDocuments();
@@ -440,12 +775,13 @@ export const dbStore = {
           });
         });
 
-        // Auto-migrate if Firestore contains old placeholder mockups
+        // Auto-migrate if Firestore contains old placeholder mockups or incomplete menu
         const hasOldPlaceholder = items.some((it) => it.id && it.id.includes("seed-"));
-        if (hasOldPlaceholder) {
-          console.log("🍟 Detected old mockups in Firestore. Migrating to official Vibe Yard menu...");
+        const containsOnlyOldVibeYard = items.length > 0 && items.length < 40 && items.some((it) => it.id && it.id.startsWith("vy-drink-"));
+        if (hasOldPlaceholder || containsOnlyOldVibeYard) {
+          console.log("🍟 Detected old mockups or incomplete menu in Firestore. Migrating to official Vibe Yard menu...");
           for (const item of items) {
-            if (item.id && item.id.includes("seed-")) {
+            if ((item.id && item.id.includes("seed-")) || (item.id && item.id.startsWith("vy-drink-"))) {
               try {
                 await deleteDoc(doc(firestoreDB, "menu", item.id));
               } catch (delErr) {
@@ -453,7 +789,7 @@ export const dbStore = {
               }
             }
           }
-          items = [];
+          items = items.filter(it => !it.id.includes("seed-") && !it.id.startsWith("vy-drink-"));
         }
         
         // If empty, seed it to Firestore
@@ -871,6 +1207,9 @@ export const dbStore = {
           username: store.admin.username,
           password: store.admin.passwordHash,
           refreshToken: store.admin.refreshToken,
+          email: store.admin.email || "admin@vibeyardlounge.com",
+          resetPasswordToken: store.admin.resetPasswordToken || "",
+          resetPasswordExpires: store.admin.resetPasswordExpires ? new Date(store.admin.resetPasswordExpires) : undefined,
         };
       }
       return null;
@@ -884,6 +1223,97 @@ export const dbStore = {
       const store = readLocalStore();
       if (store.admin.username === username) {
         store.admin.refreshToken = token;
+        writeLocalStore(store);
+        return {
+          username: store.admin.username,
+          password: store.admin.passwordHash,
+          refreshToken: store.admin.refreshToken,
+        };
+      }
+      return null;
+    }
+  },
+
+  async getAdminByEmail(email: string) {
+    if (isMongoConnected) {
+      return await AdminModel.findOne({ email });
+    } else {
+      const store = readLocalStore();
+      const adminEmail = store.admin.email || "admin@vibeyardlounge.com";
+      if (adminEmail === email) {
+        return {
+          _id: "admin-id",
+          username: store.admin.username,
+          password: store.admin.passwordHash,
+          refreshToken: store.admin.refreshToken,
+          email: adminEmail,
+          resetPasswordToken: store.admin.resetPasswordToken || "",
+          resetPasswordExpires: store.admin.resetPasswordExpires ? new Date(store.admin.resetPasswordExpires) : undefined,
+        };
+      }
+      return null;
+    }
+  },
+
+  async updateAdminResetToken(username: string, token: string, expires: Date) {
+    if (isMongoConnected) {
+      return await AdminModel.findOneAndUpdate(
+        { username },
+        { resetPasswordToken: token, resetPasswordExpires: expires },
+        { new: true }
+      );
+    } else {
+      const store = readLocalStore();
+      if (store.admin.username === username) {
+        store.admin.resetPasswordToken = token;
+        store.admin.resetPasswordExpires = expires.toISOString();
+        writeLocalStore(store);
+        return {
+          username: store.admin.username,
+          password: store.admin.passwordHash,
+          refreshToken: store.admin.refreshToken,
+          email: store.admin.email || "admin@vibeyardlounge.com",
+          resetPasswordToken: store.admin.resetPasswordToken,
+          resetPasswordExpires: expires,
+        };
+      }
+      return null;
+    }
+  },
+
+  async getAdminByResetToken(token: string) {
+    if (isMongoConnected) {
+      return await AdminModel.findOne({ resetPasswordToken: token });
+    } else {
+      const store = readLocalStore();
+      if (store.admin.resetPasswordToken === token) {
+        return {
+          _id: "admin-id",
+          username: store.admin.username,
+          password: store.admin.passwordHash,
+          refreshToken: store.admin.refreshToken,
+          email: store.admin.email || "admin@vibeyardlounge.com",
+          resetPasswordToken: store.admin.resetPasswordToken,
+          resetPasswordExpires: store.admin.resetPasswordExpires ? new Date(store.admin.resetPasswordExpires) : undefined,
+        };
+      }
+      return null;
+    }
+  },
+
+  async updateAdminPassword(username: string, passwordHash: string) {
+    if (isMongoConnected) {
+      return await AdminModel.findOneAndUpdate(
+        { username },
+        { password: passwordHash, resetPasswordToken: "", resetPasswordExpires: null },
+        { new: true }
+      );
+    } else {
+      const store = readLocalStore();
+      if (store.admin.username === username) {
+        store.admin.passwordHash = passwordHash;
+        store.admin.resetPasswordToken = "";
+        store.admin.resetPasswordExpires = "";
         writeLocalStore(store);
         return {
           username: store.admin.username,

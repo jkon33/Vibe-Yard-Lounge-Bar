@@ -77,6 +77,20 @@ export const apiService = {
     });
   },
 
+  async forgotPassword(email: string) {
+    return request<{ message: string; devResetLink?: string }>("/admin/forgot-password", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    });
+  },
+
+  async resetPassword(payload: Record<string, string>) {
+    return request<{ message: string }>("/admin/reset-password", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    });
+  },
+
   // Admin Methods (Protected)
   async createMenuItem(item: Omit<MenuItem, "_id" | "id" | "createdAt" | "updatedAt">) {
     return request<MenuItem>("/admin/menu", {

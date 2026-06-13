@@ -2,7 +2,9 @@ import { Router } from "express";
 import { 
   login, 
   logout, 
-  checkAuthStatus 
+  checkAuthStatus,
+  forgotPassword,
+  resetPassword
 } from "../controllers/adminController";
 import { 
   getMenu, 
@@ -39,6 +41,12 @@ router.get("/site-config", publicRateLimiter, getSiteConfig);
 
 // Login (under secure brute-force protection rate limiting)
 router.post("/admin/login", secureAdminLimiter, login);
+
+// Forgot Password
+router.post("/admin/forgot-password", secureAdminLimiter, forgotPassword);
+
+// Reset Password
+router.post("/admin/reset-password", secureAdminLimiter, resetPassword);
 
 // Logout
 router.post("/admin/logout", logout);

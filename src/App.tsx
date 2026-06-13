@@ -3,13 +3,27 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 import Home from "./pages/Home";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminResetPassword from "./pages/AdminResetPassword";
 import { RefreshCw } from "lucide-react";
 
-type Page = "home" | "login" | "admin";
+type Page = "home" | "login" | "admin" | "reset-password";
 
 function MainApp() {
   const { state: authState, checkAuth } = useAuth();
   const [currentPage, setCurrentPage] = useState<Page>("home");
+  const [resetToken, setResetToken] = useState<string | null>(null);
+
+  // Capture resetToken param on load
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("resetToken");
+    if (token) {
+      setResetToken(token);
+      setCurrentPage("reset-password");
+      // Clean query parameters from URL history nicely
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
 
   // Sync state with current authenticated condition
   useEffect(() => {
@@ -45,6 +59,13 @@ function MainApp() {
           onLoginSuccess={() => setCurrentPage("admin")}
         />
       );
+    case "reset-password":
+      return (
+        <AdminResetPassword
+          token={resetToken || ""}
+          onBackToLogin={() => setCurrentPage("login")}
+        />
+      );
     case "admin":
       return (
         <AdminDashboard
@@ -68,6 +89,27 @@ function MainApp() {
 }
 
 export default function App() {
+  // Load Tawk.to live chat dynamically on app mount
+  useEffect(() => {
+    if ((window as any).Tawk_API) return;
+
+    (window as any).Tawk_API = (window as any).Tawk_API || {};
+    (window as any).Tawk_LoadStart = new Date();
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://embed.tawk.to/6a2ca4858705f01c3509b7ea/1jqv65av6";
+    script.charset = "UTF-8";
+    script.setAttribute("crossorigin", "*");
+
+    const firstScript = document.getElementsByTagName("script")[0];
+    if (firstScript && firstScript.parentNode) {
+      firstScript.parentNode.insertBefore(script, firstScript);
+    } else {
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <AuthProvider>
       <MainApp />
